@@ -1,3 +1,5 @@
+apply plugin: "com.github.ben-manes.versions"
+
 buildscript {
   ext.buildConfig = [
       "minSdkVersion": 21,
@@ -13,7 +15,7 @@ buildscript {
       "billing": "com.android.billingclient:billing:2.0.3",
       "junit": "org.junit.jupiter:junit-jupiter-api:5.5.2",
       "mockitoKotlin": "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0",
-      "mockitoInline": "org.mockito:mockito-inline:3.1.0"
+      "mockitoInline": "org.mockito:mockito-inline:3.2.0"
   ]
 
   repositories {
@@ -24,6 +26,7 @@ buildscript {
   dependencies {
     classpath "com.android.tools.build:gradle:3.5.2"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+    classpath "com.github.ben-manes:gradle-versions-plugin:0.27.0"
   }
 }
 
@@ -31,5 +34,19 @@ subprojects {
   repositories {
     google()
     jcenter()
+  }
+
+  dependencyUpdates.resolutionStrategy {
+    componentSelection { rules ->
+      rules.all { ComponentSelection selection ->
+        boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm', 'preview', 'b', 'ea', 'snapshot'].any {
+          qualifier ->
+            selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-+]*/
+        }
+        if (rejected) {
+          selection.reject('Release candidate')
+        }
+      }
+    }
   }
 }
