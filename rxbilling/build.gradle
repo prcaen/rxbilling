@@ -1,0 +1,50 @@
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-android-extensions"
+
+android {
+  compileSdkVersion buildConfig.compileSdkVersion
+
+  defaultConfig {
+    minSdkVersion buildConfig.minSdkVersion
+
+    consumerProguardFiles "proguard-rules.txt"
+  }
+
+  buildTypes {
+    debug {
+      testCoverageEnabled true
+    }
+  }
+
+  lintOptions {
+    textReport true
+    textOutput "stdout"
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+    test.java.srcDirs += 'src/test/kotlin'
+  }
+
+  testOptions {
+    unitTests.returnDefaultValues = true
+  }
+}
+
+dependencies {
+  api deps.kotlinStdlib
+  api deps.rxJava
+  api deps.rxAndroid
+  api deps.billing
+
+  // Unit Tests
+  testImplementation deps.junit
+  testImplementation deps.mockitoKotlin
+  testImplementation deps.mockitoInline
+}
