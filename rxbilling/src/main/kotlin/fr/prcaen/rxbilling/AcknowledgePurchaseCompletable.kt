@@ -21,7 +21,7 @@ import io.reactivex.annotations.SchedulerSupport
  * Error handling: If Billing result is not [BillingResponseCode.OK],
  * the emitter will deliver [AcknowledgePurchaseException].
  *
- * @property params Params specific to this load request [AcknowledgePurchaseParams].
+ * @param params Params specific to this load request [AcknowledgePurchaseParams].
  *
  * @see BillingClient.acknowledgePurchase
  *

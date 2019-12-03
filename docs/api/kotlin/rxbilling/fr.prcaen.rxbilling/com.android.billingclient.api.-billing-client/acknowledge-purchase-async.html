@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>acknowledgePurchaseAsync - rxbilling</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">rxbilling</a>&nbsp;/&nbsp;<a href="../index.html">fr.prcaen.rxbilling</a>&nbsp;/&nbsp;<a href="index.html">com.android.billingclient.api.BillingClient</a>&nbsp;/&nbsp;<a href="./acknowledge-purchase-async.html">acknowledgePurchaseAsync</a><br/>
+<br/>
+<h1>acknowledgePurchaseAsync</h1>
+<a name="fr.prcaen.rxbilling$acknowledgePurchaseAsync(com.android.billingclient.api.BillingClient, com.android.billingclient.api.AcknowledgePurchaseParams)"></a>
+<code><span class="identifier">@CheckReturnValue</span> <span class="identifier">@NonNull</span> <span class="identifier">@SchedulerSupport</span><span class="symbol">(</span>"none"<span class="symbol">)</span> <span class="keyword">fun </span><a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient.html"><span class="identifier">BillingClient</span></a><span class="symbol">.</span><span class="identifier">acknowledgePurchaseAsync</span><span class="symbol">(</span><span class="identifier" id="fr.prcaen.rxbilling$acknowledgePurchaseAsync(com.android.billingclient.api.BillingClient, com.android.billingclient.api.AcknowledgePurchaseParams)/params">params</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/com/android/billingclient/api/AcknowledgePurchaseParams.html"><span class="identifier">AcknowledgePurchaseParams</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Completable.html"><span class="identifier">Completable</span></a></code>
+<p>Acknowledge in-app purchases.</p>
+<p>Note: <a href="./acknowledge-purchase-async.html">acknowledgePurchaseAsync</a> does not operate by default on a particular <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>.</p>
+<p>Error handling: If Billing result is not <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>,
+the emitter will deliver <a href="../../fr.prcaen.rxbilling.exception/-acknowledge-purchase-exception/index.html">AcknowledgePurchaseException</a>.</p>
+<h3>Parameters</h3>
+<p><a name="params"></a>
+<code>params</code> - Params specific to this load request <a href="https://developer.android.com/reference/com/android/billingclient/api/AcknowledgePurchaseParams.html">AcknowledgePurchaseParams</a>.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient.html#acknowledgePurchase(com.android.billingclient.api.AcknowledgePurchaseParams, com.android.billingclient.api.AcknowledgePurchaseResponseListener)">BillingClient.acknowledgePurchase</a></p>
+</p>
+<p><strong>Return</strong><br/>
+Completable.</p>
+</BODY>
+</HTML>

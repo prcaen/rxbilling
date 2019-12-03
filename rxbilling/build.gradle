@@ -1,6 +1,7 @@
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 apply plugin: "kotlin-android-extensions"
+apply plugin: "org.jetbrains.dokka"
 
 android {
   compileSdkVersion buildConfig.compileSdkVersion
@@ -28,12 +29,39 @@ android {
   }
 
   sourceSets {
-    main.java.srcDirs += 'src/main/kotlin'
-    test.java.srcDirs += 'src/test/kotlin'
+    main.java.srcDirs += "src/main/kotlin"
+    test.java.srcDirs += "src/test/kotlin"
   }
 
   testOptions {
     unitTests.returnDefaultValues = true
+  }
+}
+
+dokka {
+  outputFormat = "html"
+  outputDirectory = "$rootDir/docs/api/kotlin"
+
+  configuration {
+    externalDocumentationLink {
+      url = new URL("https://developer.android.com/reference/")
+      packageListUrl = new URL("https://developer.android.com/reference/android/support/package-list")
+    }
+
+    externalDocumentationLink {
+      url = new URL("http://reactivex.io/RxJava/javadoc/")
+      packageListUrl = new URL("http://reactivex.io/RxJava/javadoc/package-list")
+    }
+
+    externalDocumentationLink {
+      url = new URL("https://developer.android.com/reference/")
+      packageListUrl = new URL("https://developer.android.com/reference/com/android/billingclient/package-list")
+    }
+
+    perPackageOption {
+      prefix = "fr.prcaen.rxbilling.internal"
+      suppress = true
+    }
   }
 }
 

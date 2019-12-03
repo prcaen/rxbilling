@@ -19,12 +19,11 @@ import io.reactivex.annotations.SchedulerSupport
  *
  * Note: [consumeAsync] does not operate by default on a particular [Scheduler].
  *
- * * Error handling: If Billing result is not [BillingResponseCode.OK],
+ * Error handling: If Billing result is not [BillingResponseCode.OK],
  * the emitter will deliver [ConsumeException].
  *
- * @property consumeParams Params specific to consume purchase.
+ * @param consumeParams Params specific to consume purchase.
  *
- * @throws ConsumeException
  * @see BillingClient.consumeAsync
  *
  * @return a Single that emits the purchase token that was (or was to be) consumed.

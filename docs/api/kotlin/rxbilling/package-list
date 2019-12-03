@@ -1,0 +1,14 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:fr.prcaen.rxbilling$acknowledgePurchaseAsync(com.android.billingclient.api.BillingClient, com.android.billingclient.api.AcknowledgePurchaseParams)fr.prcaen.rxbilling/com.android.billingclient.api.-billing-client/acknowledge-purchase-async.html
+$dokka.location:fr.prcaen.rxbilling$consumeAsync(com.android.billingclient.api.BillingClient, com.android.billingclient.api.ConsumeParams)fr.prcaen.rxbilling/com.android.billingclient.api.-billing-client/consume-async.html
+$dokka.location:fr.prcaen.rxbilling$isFeatureSupportedAsync(com.android.billingclient.api.BillingClient, kotlin.String)fr.prcaen.rxbilling/com.android.billingclient.api.-billing-client/is-feature-supported-async.html
+$dokka.location:fr.prcaen.rxbilling$isReadyAsync(com.android.billingclient.api.BillingClient)fr.prcaen.rxbilling/com.android.billingclient.api.-billing-client/is-ready-async.html
+$dokka.location:fr.prcaen.rxbilling$launchBillingFlowAsync(com.android.billingclient.api.BillingClient, android.app.Activity, com.android.billingclient.api.BillingFlowParams)fr.prcaen.rxbilling/com.android.billingclient.api.-billing-client/launch-billing-flow-async.html
+$dokka.location:fr.prcaen.rxbilling$launchPriceChangeConfirmationFlowAsync(com.android.billingclient.api.BillingClient, android.app.Activity, com.android.billingclient.api.PriceChangeFlowParams)fr.prcaen.rxbilling/com.android.billingclient.api.-billing-client/launch-price-change-confirmation-flow-async.html
+$dokka.location:fr.prcaen.rxbilling$loadRewardedSkuAsync(com.android.billingclient.api.BillingClient, com.android.billingclient.api.RewardLoadParams)fr.prcaen.rxbilling/com.android.billingclient.api.-billing-client/load-rewarded-sku-async.html
+$dokka.location:fr.prcaen.rxbilling$queryPurchaseHistoryAsync(com.android.billingclient.api.BillingClient, kotlin.String)fr.prcaen.rxbilling/com.android.billingclient.api.-billing-client/query-purchase-history-async.html
+$dokka.location:fr.prcaen.rxbilling$queryPurchasesAsync(com.android.billingclient.api.BillingClient, kotlin.String)fr.prcaen.rxbilling/com.android.billingclient.api.-billing-client/query-purchases-async.html
+$dokka.location:fr.prcaen.rxbilling$querySkuDetailsAsync(com.android.billingclient.api.BillingClient, com.android.billingclient.api.SkuDetailsParams)fr.prcaen.rxbilling/com.android.billingclient.api.-billing-client/query-sku-details-async.html
+fr.prcaen.rxbilling
+fr.prcaen.rxbilling.exception

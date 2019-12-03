@@ -25,8 +25,8 @@ import io.reactivex.annotations.SchedulerSupport
  *
  * Warning: This method should be executed on MainThread, it will throw [IllegalStateException] if not.
  *
- * @property activity An activity reference from which the billing flow will be launched.
- * @property params Params specific to the request [BillingFlowParams].
+ * @param activity An activity reference from which the billing flow will be launched.
+ * @param params Params specific to the request [BillingFlowParams].
  *
  * @see BillingClient.launchBillingFlow
  *

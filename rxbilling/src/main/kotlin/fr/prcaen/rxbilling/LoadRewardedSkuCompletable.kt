@@ -21,7 +21,7 @@ import io.reactivex.annotations.SchedulerSupport
  * Error handling: If Billing result is not [BillingResponseCode.OK],
  * the emitter will deliver [LoadRewardedSkuException].
  *
- * @property params Params specific to this load request [RewardLoadParams]
+ * @param params Params specific to this load request [RewardLoadParams]
  *
  * @see BillingClient.loadRewardedSku
  *

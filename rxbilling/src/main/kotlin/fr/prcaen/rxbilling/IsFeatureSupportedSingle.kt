@@ -25,7 +25,7 @@ import io.reactivex.annotations.SchedulerSupport
  * Error handling: If Billing result is not [BillingResponseCode.OK] or [BillingResponseCode.FEATURE_NOT_SUPPORTED],
  * the emitter will deliver [IsFeatureSupportedException].
  *
- * @property feature Params specific to this load request [FeatureType].
+ * @param feature Params specific to this load request [FeatureType].
  *
  * @see BillingClient.isFeatureSupported
  *

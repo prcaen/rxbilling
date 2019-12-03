@@ -22,7 +22,7 @@ import io.reactivex.annotations.SchedulerSupport
  * Error handling: If Billing result is not [BillingResponseCode.OK],
  * the emitter will deliver [QuerySkuDetailsException].
  *
- * @property params Params specific to this query request [SkuDetailsParams]
+ * @param params Params specific to this query request [SkuDetailsParams]
  *
  * @see BillingClient.querySkuDetailsAsync
  *

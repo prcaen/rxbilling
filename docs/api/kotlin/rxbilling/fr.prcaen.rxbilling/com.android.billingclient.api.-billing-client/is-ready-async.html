@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>isReadyAsync - rxbilling</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">rxbilling</a>&nbsp;/&nbsp;<a href="../index.html">fr.prcaen.rxbilling</a>&nbsp;/&nbsp;<a href="index.html">com.android.billingclient.api.BillingClient</a>&nbsp;/&nbsp;<a href="./is-ready-async.html">isReadyAsync</a><br/>
+<br/>
+<h1>isReadyAsync</h1>
+<a name="fr.prcaen.rxbilling$isReadyAsync(com.android.billingclient.api.BillingClient)"></a>
+<code><span class="identifier">@CheckReturnValue</span> <span class="identifier">@NonNull</span> <span class="identifier">@SchedulerSupport</span><span class="symbol">(</span>"none"<span class="symbol">)</span> <span class="keyword">fun </span><a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient.html"><span class="identifier">BillingClient</span></a><span class="symbol">.</span><span class="identifier">isReadyAsync</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Single.html"><span class="identifier">Single</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code>
+<p>Checks if the client is currently connected to the service, so that requests to other methods
+will succeed.</p>
+<p>Note: <a href="./is-ready-async.html">isReadyAsync</a> does not operate by default on a particular <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>.</p>
+<p>Warning: This method should be executed on MainThread, it will throw <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/index.html">IllegalStateException</a> if not.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient.html#isReady()">BillingClient.isReady</a></p>
+</p>
+<p><strong>Return</strong><br/>
+a Single that emits true if the client is currently connected to the service, false otherwise.</p>
+</BODY>
+</HTML>

@@ -23,7 +23,7 @@ import io.reactivex.annotations.SchedulerSupport
  * Error handling: If Billing result is not [BillingResponseCode.OK],
  * the emitter will deliver [QueryPurchaseHistoryException].
  *
- * @property skuType The type of SKU, either "inapp" or "subs" as in [SkuType]
+ * @param skuType The type of SKU, either "inapp" or "subs" as in [SkuType]
  *
  * @see BillingClient.queryPurchaseHistoryAsync
  *
