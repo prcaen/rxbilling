@@ -17,7 +17,6 @@ import com.android.billingclient.api.PurchaseHistoryResponseListener;
 import com.android.billingclient.api.RewardLoadParams;
 import com.android.billingclient.api.RewardResponseListener;
 import com.android.billingclient.api.SkuDetails;
-import com.android.billingclient.api.SkuDetailsParams;
 import com.android.billingclient.api.SkuDetailsResponseListener;
 import fr.prcaen.rxbilling.exception.AcknowledgePurchaseException;
 import fr.prcaen.rxbilling.exception.ConsumeException;
@@ -482,7 +481,6 @@ class RxBillingClientTest {
 
   @Test void querySkuDetailsAsync_should_return_value_when_BillingResponseCode_is_OK() {
     // Given
-    final SkuDetailsParams params = mock(SkuDetailsParams.class);
     final BillingClient client = mock(BillingClient.class);
     final List<SkuDetails> list = new ArrayList<>();
     list.add(mock(SkuDetails.class));
@@ -498,11 +496,12 @@ class RxBillingClientTest {
       return null;
     })
         .when(client)
-        .querySkuDetailsAsync(eq(params), any(SkuDetailsResponseListener.class));
+        .querySkuDetailsAsync(any(), any(SkuDetailsResponseListener.class));
 
     // When
-    final TestObserver<List<SkuDetails>> obs = RxBillingClient.querySkuDetailsAsync(client, params)
-        .test();
+    final TestObserver<List<SkuDetails>> obs =
+        RxBillingClient.querySkusDetailsAsync(client, new ArrayList<>(), INAPP)
+            .test();
     obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
@@ -512,7 +511,6 @@ class RxBillingClientTest {
 
   @Test void querySkuDetailsAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
     // Given
-    final SkuDetailsParams params = mock(SkuDetailsParams.class);
     final BillingClient client = mock(BillingClient.class);
     final int responseCode = BillingResponseCode.ERROR;
     final String debugMessage = "Error";
@@ -529,11 +527,12 @@ class RxBillingClientTest {
       return null;
     })
         .when(client)
-        .querySkuDetailsAsync(eq(params), any(SkuDetailsResponseListener.class));
+        .querySkuDetailsAsync(any(), any(SkuDetailsResponseListener.class));
 
     // When
-    final TestObserver<List<SkuDetails>> obs = RxBillingClient.querySkuDetailsAsync(client, params)
-        .test();
+    final TestObserver<List<SkuDetails>> obs =
+        RxBillingClient.querySkusDetailsAsync(client, new ArrayList<>(), INAPP)
+            .test();
     obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then

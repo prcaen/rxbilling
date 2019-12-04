@@ -39,8 +39,8 @@ android {
 }
 
 dokka {
-  outputFormat = "html"
-  outputDirectory = "$rootDir/docs/api/kotlin"
+  outputFormat = "javadoc"
+  outputDirectory = "$rootDir/docs/api/java"
 
   configuration {
     externalDocumentationLink {

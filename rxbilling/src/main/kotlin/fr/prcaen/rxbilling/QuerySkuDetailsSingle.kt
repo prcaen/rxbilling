@@ -5,6 +5,7 @@ package fr.prcaen.rxbilling
 
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClient.BillingResponseCode
+import com.android.billingclient.api.BillingClient.SkuType
 import com.android.billingclient.api.SkuDetails
 import com.android.billingclient.api.SkuDetailsParams
 import fr.prcaen.rxbilling.exception.QuerySkuDetailsException
@@ -15,24 +16,33 @@ import io.reactivex.annotations.NonNull
 import io.reactivex.annotations.SchedulerSupport
 
 /**
- * Perform a network query to get SKU details.
+ * Perform a network query to get SKUs details.
  *
- * Note: [querySkuDetailsAsync] does not operate by default on a particular [Scheduler].
+ * Note: [querySkusDetailsAsync] does not operate by default on a particular [Scheduler].
  *
  * Error handling: If Billing result is not [BillingResponseCode.OK],
  * the emitter will deliver [QuerySkuDetailsException].
  *
- * @param params Params specific to this query request [SkuDetailsParams]
+ * @param skusList Specify the SKUs that are queried for as published in the Google Developer console.
+ * @param skuType Specify the type [SkuType] of SKUs we are querying for.
  *
- * @see BillingClient.querySkuDetailsAsync
+ * @see BillingClient.querySkusDetailsAsync
  *
  * @return a Single that emits the list of [SkuDetails].
  */
 @CheckReturnValue
 @NonNull
 @SchedulerSupport(SchedulerSupport.NONE)
-fun BillingClient.querySkuDetailsAsync(params: SkuDetailsParams): Single<List<SkuDetails>> =
+fun BillingClient.querySkusDetailsAsync(
+  skusList: List<String>,
+  @SkuType skuType: String
+): Single<List<SkuDetails>> =
   Single.create { emitter ->
+    val params: SkuDetailsParams = SkuDetailsParams.newBuilder()
+      .setSkusList(skusList)
+      .setType(skuType)
+      .build()
+
     querySkuDetailsAsync(params) { result, list ->
       if (!emitter.isDisposed) {
         if (result.responseCode == BillingResponseCode.OK) {
@@ -48,3 +58,34 @@ fun BillingClient.querySkuDetailsAsync(params: SkuDetailsParams): Single<List<Sk
       }
     }
   }
+
+/**
+ * Perform a network query to get SKU details.
+ *
+ * Note: [querySkuDetailsAsync] does not operate by default on a particular [Scheduler].
+ *
+ * Error handling: If Billing result is not [BillingResponseCode.OK],
+ * the emitter will deliver [QuerySkuDetailsException].
+ *
+ * @param sku Specify the SKU that is queried for as published in the Google Developer console.
+ * @param skuType Specify the type [SkuType] of SKUs we are querying for.
+ *
+ * @see BillingClient.querySkuDetailsAsync
+ *
+ * @return a Single that emits a [SkuDetails].
+ */
+@CheckReturnValue
+@NonNull
+@SchedulerSupport(SchedulerSupport.NONE)
+fun BillingClient.querySkuDetailsAsync(
+  sku: String,
+  @SkuType skuType: String
+): Single<SkuDetails> = querySkusDetailsAsync(
+  skusList = listOf(sku),
+  skuType = skuType
+).map { list ->
+  list.firstOrNull() ?: throw QuerySkuDetailsException(
+    responseCode = BillingResponseCode.DEVELOPER_ERROR,
+    debugMessage = "Empty list of SKUs"
+  )
+}
