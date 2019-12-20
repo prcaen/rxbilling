@@ -10,9 +10,9 @@ buildscript {
   ]
   ext.deps = [
       "kotlinStdlib": "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
-      "rxJava": "io.reactivex.rxjava2:rxjava:2.2.15",
+      "rxJava": "io.reactivex.rxjava2:rxjava:2.2.16",
       "rxAndroid": "io.reactivex.rxjava2:rxandroid:2.1.1",
-      "billing": "com.android.billingclient:billing:2.0.3",
+      "billing": "com.android.billingclient:billing:2.1.0",
       "junit": "org.junit.jupiter:junit-jupiter-api:5.5.2",
       "mockitoKotlin": "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0",
       "mockitoInline": "org.mockito:mockito-inline:3.2.0"
@@ -24,7 +24,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.android.tools.build:gradle:3.5.2"
+    classpath "com.android.tools.build:gradle:3.5.3"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
     classpath "com.github.ben-manes:gradle-versions-plugin:0.27.0"
     classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.10.0"
