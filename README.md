@@ -1,7 +1,7 @@
 # RxBilling
 [![Build status](https://api.travis-ci.org/prcaen/rxbilling.svg?branch=master)](https://travis-ci.org/prcaen/rxbilling) [ ![JCenter](https://api.bintray.com/packages/prcaen/maven/rxbilling/images/download.svg) ](https://bintray.com/prcaen/maven/rxbilling/_latestVersion)
 
-RxJava binding APIs for Google Play Billing
+RxJava binding APIs for Google Play Billing.
 
 ## API documentation
 Available soon.
@@ -30,17 +30,9 @@ cd rxbilling/
 
 ### Deploy
 
-#### Locally (Maven local)
-
-1. Bump version name by suffixing it with `-X` in `./build.gradle` where `X` is a incremental number 
-2. Launch the following command: `./gradlew rxbilling:clean rxbilling:testReleaseUnitTest rxbilling:publishToMavenLocal`
-
-#### Snapshot
-1. Bump version name by suffixing it with `-snapshot` in `./build.gradle` 
-2. Launch the following command: `./gradlew rxbilling:clean rxbilling:testReleaseUnitTest rxbilling:artifactoryPublish`
-
 #### Release
-1. Bump version name in `./build.gradle` 
+
+1. Bump version code in `gradle.properties` 
 2. Launch the following command: `./gradlew rxbilling:clean rxbilling:testReleaseUnitTest rxbilling:artifactoryPublish`
 
 ### Check for dependencies updates

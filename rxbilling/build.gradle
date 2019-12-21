@@ -80,3 +80,5 @@ dependencies {
   testImplementation deps.mockitoKotlin
   testImplementation deps.mockitoInline
 }
+
+apply from: "../gradle/publish.gradle"
