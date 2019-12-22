@@ -1,96 +1,98 @@
 apply plugin: "com.jfrog.bintray"
 apply plugin: "com.github.dcendents.android-maven"
 
-task androidJavadocs(type: Javadoc) {
-  if (!project.plugins.hasPlugin('kotlin-android')) {
-    source = android.sourceSets.main.java.srcDirs
-  }
-  classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-  exclude '**/internal/*'
-  include '**/*.java'
+afterEvaluate {
+  task androidJavadocs(type: Javadoc) {
+    if (!project.plugins.hasPlugin('kotlin-android')) {
+      source = android.sourceSets.main.java.srcDirs
+    }
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    exclude '**/internal/*'
+    include '**/*.java'
 
-  if (JavaVersion.current().isJava8Compatible()) {
-    options.addStringOption('Xdoclint:none', '-quiet')
-  }
-}
-
-task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-  classifier = 'javadoc'
-  from androidJavadocs.destinationDir
-}
-
-task androidSourcesJar(type: Jar) {
-  classifier = 'sources'
-  from android.sourceSets.main.java.source
-}
-
-artifacts {
-  archives androidSourcesJar
-  archives androidJavadocsJar
-}
-
-group = GROUP
-version = VERSION_NAME
-
-bintray {
-  user = bintray_username
-  key = bintray_api_key
-  configurations = ['archives']
-
-  dryRun = false
-  publish = true
-
-  pkg {
-    repo = BINTRAY_REPO
-    name = ARTIFACT_ID
-    desc = PROJECT_DESCRIPTION
-    userOrg = DEVELOPER_ID
-    websiteUrl = WEBSITE_URL
-    issueTrackerUrl = ISSUE_TRACKER_URL
-    vcsUrl = WEBSITE_URL
-    licenses = ['Apache-2.0']
-    //githubRepo = GITHUB_REPO
-    //githubReleaseNotesFile = RELEASE_NOTES_FILE
-
-    version {
-      name = VERSION_NAME
-      desc = PROJECT_DESCRIPTION
-      vcsTag = VERSION_NAME
+    if (JavaVersion.current().isJava8Compatible()) {
+      options.addStringOption('Xdoclint:none', '-quiet')
     }
   }
-}
 
-install {
-  repositories.mavenInstaller {
-    pom {
-      project {
-        packaging PACKAGING
-        groupId GROUP
-        artifactId ARTIFACT_ID
+  task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+    archiveClassifier.set('javadoc')
+    from androidJavadocs.destinationDir
+  }
 
-        name PROJECT_NAME
-        description PROJECT_DESCRIPTION
-        url WEBSITE_URL
+  task androidSourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from android.sourceSets.main.java.source
+  }
 
-        licenses {
-          license {
-            name LICENCE_NAME
-            url LICENCE_URL
-          }
-        }
+  artifacts {
+    archives androidSourcesJar
+    archives androidJavadocsJar
+  }
 
-        developers {
-          developer {
-            id DEVELOPER_ID
-            name DEVELOPER_NAME
-            email DEVELOPER_EMAIL
-          }
-        }
+  group = GROUP
+  version = VERSION_NAME
 
-        scm {
-          connection SCM_CONNECTION
-          developerConnection SCM_CONNECTION
+  bintray {
+    user = bintray_username
+    key = bintray_api_key
+    configurations = ['archives']
+
+    dryRun = false
+    publish = true
+
+    pkg {
+      repo = BINTRAY_REPO
+      name = ARTIFACT_ID
+      desc = PROJECT_DESCRIPTION
+      userOrg = DEVELOPER_ID
+      websiteUrl = WEBSITE_URL
+      issueTrackerUrl = ISSUE_TRACKER_URL
+      vcsUrl = WEBSITE_URL
+      licenses = ['Apache-2.0']
+      //githubRepo = GITHUB_REPO
+      //githubReleaseNotesFile = RELEASE_NOTES_FILE
+
+      version {
+        name = VERSION_NAME
+        desc = PROJECT_DESCRIPTION
+        vcsTag = VERSION_NAME
+      }
+    }
+  }
+
+  install {
+    repositories.mavenInstaller {
+      pom {
+        project {
+          packaging PACKAGING
+          groupId GROUP
+          artifactId ARTIFACT_ID
+
+          name PROJECT_NAME
+          description PROJECT_DESCRIPTION
           url WEBSITE_URL
+
+          licenses {
+            license {
+              name LICENCE_NAME
+              url LICENCE_URL
+            }
+          }
+
+          developers {
+            developer {
+              id DEVELOPER_ID
+              name DEVELOPER_NAME
+              email DEVELOPER_EMAIL
+            }
+          }
+
+          scm {
+            connection SCM_CONNECTION
+            developerConnection SCM_CONNECTION
+            url WEBSITE_URL
+          }
         }
       }
     }
