@@ -9,7 +9,7 @@ Available soon.
 ## Download
 
 ```groovy
-implementation 'fr.prcaen.rxbilling:0.0.1'
+implementation "fr.prcaen.rxbilling:${versions.rxbilling}"
 ```
 
 ## Contributes
@@ -43,7 +43,7 @@ cd rxbilling/
 
 ## License
 
-    Copyright (c) 2016-present, Pierrick Caen (https://pierrickcaen.fr).
+    Copyright (c) 2019-present, Pierrick Caen (https://pierrickcaen.fr).
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
