@@ -34,8 +34,8 @@ afterEvaluate {
   version = VERSION_NAME
 
   bintray {
-    user = hasProperty("bintray_username") ? bintray_username : ""
-    key = hasProperty("bintray_api_key") ? bintray_api_key : ""
+    user = bintray_username
+    key = bintray_api_key
     configurations = ['archives']
 
     dryRun = false
