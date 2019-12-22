@@ -13,7 +13,7 @@ import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import fr.prcaen.rxbilling.exception.QueryPurchaseHistoryException
-import org.junit.jupiter.api.Test
+import org.junit.Test
 import java.util.concurrent.TimeUnit.MILLISECONDS
 
 class QueryPurchaseHistorySingleTest {

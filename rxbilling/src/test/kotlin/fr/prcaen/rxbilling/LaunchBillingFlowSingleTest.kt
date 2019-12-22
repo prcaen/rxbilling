@@ -7,7 +7,7 @@ import com.android.billingclient.api.BillingResult
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import org.junit.jupiter.api.Test
+import org.junit.Test
 import java.util.concurrent.TimeUnit.MILLISECONDS
 
 class LaunchBillingFlowSingleTest {

@@ -13,7 +13,7 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import fr.prcaen.rxbilling.exception.LoadRewardedSkuException
 import io.reactivex.observers.TestObserver
-import org.junit.jupiter.api.Test
+import org.junit.Test
 import java.util.concurrent.TimeUnit.MILLISECONDS
 
 class LoadRewardedSkuCompletableTest {

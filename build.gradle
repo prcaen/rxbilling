@@ -13,7 +13,7 @@ buildscript {
       "rxJava": "io.reactivex.rxjava2:rxjava:2.2.16",
       "rxAndroid": "io.reactivex.rxjava2:rxandroid:2.1.1",
       "billing": "com.android.billingclient:billing:2.1.0",
-      "junit": "org.junit.jupiter:junit-jupiter-api:5.5.2",
+      "junit": "junit:junit:4.12",
       "mockitoKotlin": "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0",
       "mockitoInline": "org.mockito:mockito-inline:3.2.0"
   ]

@@ -4,7 +4,6 @@ import android.app.Activity;
 import com.android.billingclient.api.AcknowledgePurchaseParams;
 import com.android.billingclient.api.AcknowledgePurchaseResponseListener;
 import com.android.billingclient.api.BillingClient;
-import com.android.billingclient.api.BillingClient.BillingResponseCode;
 import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.ConsumeParams;
@@ -30,7 +29,7 @@ import io.reactivex.observers.TestObserver;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static com.android.billingclient.api.BillingClient.FeatureType.SUBSCRIPTIONS;
 import static com.android.billingclient.api.BillingClient.SkuType.INAPP;
@@ -41,9 +40,9 @@ import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
-class RxBillingClientTest {
-
-  @Test void acknowledgePurchaseAsync_should_complete_when_BillingResponseCode_is_OK() {
+public class RxBillingClientTest {
+  @Test
+  public void acknowledgePurchaseAsync_should_complete_when_BillingResponseCode_is_OK() {
     // Given
     final AcknowledgePurchaseParams params = mock(AcknowledgePurchaseParams.class);
     final BillingClient client = mock(BillingClient.class);
@@ -51,7 +50,7 @@ class RxBillingClientTest {
     doAnswer(invocationOnMock -> {
       final BillingResult result = mock(BillingResult.class);
 
-      given(result.getResponseCode()).willReturn(BillingResponseCode.OK);
+      given(result.getResponseCode()).willReturn(BillingClient.BillingResponseCode.OK);
 
       invocationOnMock.getArgument(1, AcknowledgePurchaseResponseListener.class)
           .onAcknowledgePurchaseResponse(result);
@@ -71,11 +70,12 @@ class RxBillingClientTest {
     obs.assertNoErrors();
   }
 
-  @Test void acknowledgePurchaseAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
+  @Test
+  public void acknowledgePurchaseAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
     // Given
     final AcknowledgePurchaseParams params = mock(AcknowledgePurchaseParams.class);
     final BillingClient client = mock(BillingClient.class);
-    final int responseCode = BillingResponseCode.ERROR;
+    final int responseCode = BillingClient.BillingResponseCode.ERROR;
     final String debugMessage = "Error";
 
     doAnswer(invocationOnMock -> {
@@ -104,7 +104,8 @@ class RxBillingClientTest {
     );
   }
 
-  @Test void consumeAsync_should_return_value_when_BillingResponseCode_is_OK() {
+  @Test
+  public void consumeAsync_should_return_value_when_BillingResponseCode_is_OK() {
     // Given
     final ConsumeParams params = mock(ConsumeParams.class);
     final BillingClient client = mock(BillingClient.class);
@@ -113,7 +114,7 @@ class RxBillingClientTest {
     doAnswer(invocationOnMock -> {
       final BillingResult result = mock(BillingResult.class);
 
-      given(result.getResponseCode()).willReturn(BillingResponseCode.OK);
+      given(result.getResponseCode()).willReturn(BillingClient.BillingResponseCode.OK);
 
       invocationOnMock.getArgument(1, ConsumeResponseListener.class)
           .onConsumeResponse(result, purchaseToken);
@@ -133,11 +134,12 @@ class RxBillingClientTest {
     obs.assertNoErrors();
   }
 
-  @Test void consumeAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
+  @Test
+  public void consumeAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
     // Given
     final ConsumeParams params = mock(ConsumeParams.class);
     final BillingClient client = mock(BillingClient.class);
-    final int responseCode = BillingResponseCode.ERROR;
+    final int responseCode = BillingClient.BillingResponseCode.ERROR;
     final String debugMessage = "Error";
 
     doAnswer(invocationOnMock -> {
@@ -167,13 +169,13 @@ class RxBillingClientTest {
   }
 
   @Test
-  void isFeatureSupportedAsync_should_return_true_when_BillingResponseCode_is_OK() {
+  public void isFeatureSupportedAsync_should_return_true_when_BillingResponseCode_is_OK() {
     // Given
     final BillingClient client = mock(BillingClient.class);
     final BillingResult result = mock(BillingResult.class);
     final String feature = SUBSCRIPTIONS;
 
-    given(result.getResponseCode()).willReturn(BillingResponseCode.OK);
+    given(result.getResponseCode()).willReturn(BillingClient.BillingResponseCode.OK);
     given(client.isFeatureSupported(feature)).willReturn(result);
 
     // When
@@ -187,13 +189,14 @@ class RxBillingClientTest {
   }
 
   @Test
-  void isFeatureSupportedAsync_should_return_false_when_BillingResponseCode_is_FEATURE_NOT_SUPPORTED() {
+  public void isFeatureSupportedAsync_should_return_false_when_BillingResponseCode_is_FEATURE_NOT_SUPPORTED() {
     // Given
     final BillingClient client = mock(BillingClient.class);
     final BillingResult result = mock(BillingResult.class);
     final String feature = SUBSCRIPTIONS;
 
-    given(result.getResponseCode()).willReturn(BillingResponseCode.FEATURE_NOT_SUPPORTED);
+    given(result.getResponseCode()).willReturn(
+        BillingClient.BillingResponseCode.FEATURE_NOT_SUPPORTED);
     given(client.isFeatureSupported(feature)).willReturn(result);
 
     // When
@@ -207,12 +210,12 @@ class RxBillingClientTest {
   }
 
   @Test
-  void isFeatureSupportedAsync_should_throw_when_BillingResponseCode_is_not_OK_or_FEATURE_NOT_SUPPORTED() {
+  public void isFeatureSupportedAsync_should_throw_when_BillingResponseCode_is_not_OK_or_FEATURE_NOT_SUPPORTED() {
     // Given
     final BillingClient client = mock(BillingClient.class);
     final BillingResult result = mock(BillingResult.class);
     final String feature = SUBSCRIPTIONS;
-    final int responseCode = BillingResponseCode.ERROR;
+    final int responseCode = BillingClient.BillingResponseCode.ERROR;
     final String debugMessage = "Error";
 
     given(result.getResponseCode()).willReturn(responseCode);
@@ -232,7 +235,7 @@ class RxBillingClientTest {
   }
 
   @Test
-  void isReadyAsync_should_return_true_when_BillingClient_isReady_equals_true() {
+  public void isReadyAsync_should_return_true_when_BillingClient_isReady_equals_true() {
     // Given
     final BillingClient client = mock(BillingClient.class);
 
@@ -249,7 +252,7 @@ class RxBillingClientTest {
   }
 
   @Test
-  void isReadyAsync_should_return_false_when_BillingClient_isReady_equals_false() {
+  public void isReadyAsync_should_return_false_when_BillingClient_isReady_equals_false() {
     // Given
     final BillingClient client = mock(BillingClient.class);
 
@@ -266,7 +269,7 @@ class RxBillingClientTest {
   }
 
   @Test
-  void launchBillingFlowAsync_should_return_BillingResult() {
+  public void launchBillingFlowAsync_should_return_BillingResult() {
     // Given
     final BillingFlowParams params = mock(BillingFlowParams.class);
     final BillingClient client = mock(BillingClient.class);
@@ -287,7 +290,7 @@ class RxBillingClientTest {
   }
 
   @Test
-  void launchPriceChangeConfirmationFlowAsync_should_complete_when_BillingResponseCode_is_OK() {
+  public void launchPriceChangeConfirmationFlowAsync_should_complete_when_BillingResponseCode_is_OK() {
     // Given
     final PriceChangeFlowParams params = mock(PriceChangeFlowParams.class);
     final BillingClient client = mock(BillingClient.class);
@@ -296,7 +299,7 @@ class RxBillingClientTest {
     doAnswer(invocationOnMock -> {
       final BillingResult result = mock(BillingResult.class);
 
-      given(result.getResponseCode()).willReturn(BillingResponseCode.OK);
+      given(result.getResponseCode()).willReturn(BillingClient.BillingResponseCode.OK);
 
       invocationOnMock.getArgument(2, PriceChangeConfirmationListener.class)
           .onPriceChangeConfirmationResult(result);
@@ -318,12 +321,12 @@ class RxBillingClientTest {
   }
 
   @Test
-  void launchPriceChangeConfirmationFlowAsync_should_throw_when_BillingResponseCode_is_not_OK() {
+  public void launchPriceChangeConfirmationFlowAsync_should_throw_when_BillingResponseCode_is_not_OK() {
     // Given
     final PriceChangeFlowParams params = mock(PriceChangeFlowParams.class);
     final BillingClient client = mock(BillingClient.class);
     final Activity activity = mock(Activity.class);
-    final int responseCode = BillingResponseCode.ERROR;
+    final int responseCode = BillingClient.BillingResponseCode.ERROR;
     final String debugMessage = "Error";
 
     doAnswer(invocationOnMock -> {
@@ -353,7 +356,8 @@ class RxBillingClientTest {
     );
   }
 
-  @Test void loadRewardedSkuAsync_should_complete_when_BillingResponseCode_is_OK() {
+  @Test
+  public void loadRewardedSkuAsync_should_complete_when_BillingResponseCode_is_OK() {
     // Given
     final RewardLoadParams params = mock(RewardLoadParams.class);
     final BillingClient client = mock(BillingClient.class);
@@ -361,7 +365,7 @@ class RxBillingClientTest {
     doAnswer(invocationOnMock -> {
       final BillingResult result = mock(BillingResult.class);
 
-      given(result.getResponseCode()).willReturn(BillingResponseCode.OK);
+      given(result.getResponseCode()).willReturn(BillingClient.BillingResponseCode.OK);
 
       invocationOnMock.getArgument(1, RewardResponseListener.class)
           .onRewardResponse(result);
@@ -381,11 +385,12 @@ class RxBillingClientTest {
     obs.assertNoErrors();
   }
 
-  @Test void loadRewardedSkuAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
+  @Test
+  public void loadRewardedSkuAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
     // Given
     final RewardLoadParams params = mock(RewardLoadParams.class);
     final BillingClient client = mock(BillingClient.class);
-    final int responseCode = BillingResponseCode.ERROR;
+    final int responseCode = BillingClient.BillingResponseCode.ERROR;
     final String debugMessage = "Error";
 
     doAnswer(invocationOnMock -> {
@@ -414,7 +419,8 @@ class RxBillingClientTest {
     );
   }
 
-  @Test void queryPurchaseHistoryAsync_should_return_value_when_BillingResponseCode_is_OK() {
+  @Test
+  public void queryPurchaseHistoryAsync_should_return_value_when_BillingResponseCode_is_OK() {
     // Given
     final BillingClient client = mock(BillingClient.class);
     final String skuType = INAPP;
@@ -424,7 +430,7 @@ class RxBillingClientTest {
     doAnswer(invocationOnMock -> {
       final BillingResult result = mock(BillingResult.class);
 
-      given(result.getResponseCode()).willReturn(BillingResponseCode.OK);
+      given(result.getResponseCode()).willReturn(BillingClient.BillingResponseCode.OK);
 
       invocationOnMock.getArgument(1, PurchaseHistoryResponseListener.class)
           .onPurchaseHistoryResponse(result, list);
@@ -445,10 +451,11 @@ class RxBillingClientTest {
     obs.assertNoErrors();
   }
 
-  @Test void queryPurchaseHistoryAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
+  @Test
+  public void queryPurchaseHistoryAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
     // Given
     final BillingClient client = mock(BillingClient.class);
-    final int responseCode = BillingResponseCode.ERROR;
+    final int responseCode = BillingClient.BillingResponseCode.ERROR;
     final String debugMessage = "Error";
     final String skuType = INAPP;
 
@@ -479,7 +486,8 @@ class RxBillingClientTest {
     );
   }
 
-  @Test void querySkuDetailsAsync_should_return_value_when_BillingResponseCode_is_OK() {
+  @Test
+  public void querySkuDetailsAsync_should_return_value_when_BillingResponseCode_is_OK() {
     // Given
     final BillingClient client = mock(BillingClient.class);
     final List<SkuDetails> list = new ArrayList<>();
@@ -488,7 +496,7 @@ class RxBillingClientTest {
     doAnswer(invocationOnMock -> {
       final BillingResult result = mock(BillingResult.class);
 
-      given(result.getResponseCode()).willReturn(BillingResponseCode.OK);
+      given(result.getResponseCode()).willReturn(BillingClient.BillingResponseCode.OK);
 
       invocationOnMock.getArgument(1, SkuDetailsResponseListener.class)
           .onSkuDetailsResponse(result, list);
@@ -509,10 +517,11 @@ class RxBillingClientTest {
     obs.assertNoErrors();
   }
 
-  @Test void querySkuDetailsAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
+  @Test
+  public void querySkuDetailsAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
     // Given
     final BillingClient client = mock(BillingClient.class);
-    final int responseCode = BillingResponseCode.ERROR;
+    final int responseCode = BillingClient.BillingResponseCode.ERROR;
     final String debugMessage = "Error";
 
     doAnswer(invocationOnMock -> {
@@ -542,7 +551,8 @@ class RxBillingClientTest {
     );
   }
 
-  @Test void queryPurchasesAsync_should_return_value_when_BillingResponseCode_is_OK() {
+  @Test
+  public void queryPurchasesAsync_should_return_value_when_BillingResponseCode_is_OK() {
     // Given
     final String skuType = INAPP;
     final BillingClient client = mock(BillingClient.class);
@@ -563,7 +573,7 @@ class RxBillingClientTest {
         .when(purchasesResult)
         .getBillingResult();
 
-    given(result.getResponseCode()).willReturn(BillingResponseCode.OK);
+    given(result.getResponseCode()).willReturn(BillingClient.BillingResponseCode.OK);
 
     // When
     final TestObserver<List<Purchase>> obs = RxBillingClient.queryPurchasesAsync(client, skuType)
@@ -575,11 +585,12 @@ class RxBillingClientTest {
     obs.assertNoErrors();
   }
 
-  @Test void queryPurchasesAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
+  @Test
+  public void queryPurchasesAsync_should_throw_error_when_BillingResponseCode_is_not_OK() {
     // Given
     final String skuType = INAPP;
     final BillingClient client = mock(BillingClient.class);
-    final int responseCode = BillingResponseCode.ERROR;
+    final int responseCode = BillingClient.BillingResponseCode.ERROR;
     final String debugMessage = "Error";
     final Purchase.PurchasesResult purchasesResult = mock(Purchase.PurchasesResult.class);
     final BillingResult result = mock(BillingResult.class);
