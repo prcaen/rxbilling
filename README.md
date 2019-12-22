@@ -33,7 +33,7 @@ cd rxbilling/
 #### Release
 
 1. Bump version code in `gradle.properties` 
-2. Launch the following command: `./gradlew rxbilling:clean rxbilling:testReleaseUnitTest rxbilling:artifactoryPublish`
+2. Launch the following command: `./gradlew rxbilling:clean rxbilling:testReleaseUnitTest rxbilling:install rxbilling:bintrayUpload`
 
 ### Check for dependencies updates
 
