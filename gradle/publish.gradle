@@ -1,6 +1,14 @@
 apply plugin: "com.jfrog.bintray"
 apply plugin: "com.github.dcendents.android-maven"
 
+def bintrayUsername() {
+  return hasProperty('bintray_username') ? bintray_username : ""
+}
+
+def bintrayApiKey() {
+  return hasProperty('bintray_api_key') ? bintray_api_key : ""
+}
+
 afterEvaluate {
   task androidJavadocs(type: Javadoc) {
     if (!project.plugins.hasPlugin('kotlin-android')) {
@@ -34,8 +42,8 @@ afterEvaluate {
   version = VERSION_NAME
 
   bintray {
-    user = bintray_username
-    key = bintray_api_key
+    user = bintrayUsername()
+    key = bintrayApiKey()
     configurations = ['archives']
 
     dryRun = false
