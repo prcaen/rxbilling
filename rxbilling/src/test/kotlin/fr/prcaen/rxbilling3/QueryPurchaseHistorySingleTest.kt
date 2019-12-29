@@ -1,4 +1,4 @@
-package fr.prcaen.rxbilling
+package fr.prcaen.rxbilling3
 
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClient.BillingResponseCode
@@ -12,9 +12,8 @@ import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import fr.prcaen.rxbilling.exception.QueryPurchaseHistoryException
+import fr.prcaen.rxbilling3.exception.QueryPurchaseHistoryException
 import org.junit.Test
-import java.util.concurrent.TimeUnit.MILLISECONDS
 
 class QueryPurchaseHistorySingleTest {
 
@@ -40,9 +39,6 @@ class QueryPurchaseHistorySingleTest {
     // When
     val obs = client.queryPurchaseHistoryAsync(skuType)
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     // Then
     obs.assertValue(list)
@@ -77,9 +73,6 @@ class QueryPurchaseHistorySingleTest {
     // When
     val obs = client.queryPurchaseHistoryAsync(skuType)
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     // Then
     obs.assertError { e ->

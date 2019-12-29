@@ -72,7 +72,6 @@ dokka {
 dependencies {
   api deps.kotlinStdlib
   api deps.rxJava
-  api deps.rxAndroid
   api deps.billing
 
   // Unit Tests

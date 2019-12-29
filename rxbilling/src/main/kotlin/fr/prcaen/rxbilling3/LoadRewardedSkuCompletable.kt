@@ -1,17 +1,17 @@
 @file:JvmName("RxBillingClient")
 @file:JvmMultifileClass
 
-package fr.prcaen.rxbilling
+package fr.prcaen.rxbilling3
 
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClient.BillingResponseCode
 import com.android.billingclient.api.RewardLoadParams
-import fr.prcaen.rxbilling.exception.LoadRewardedSkuException
-import io.reactivex.Completable
-import io.reactivex.Scheduler
-import io.reactivex.annotations.CheckReturnValue
-import io.reactivex.annotations.NonNull
-import io.reactivex.annotations.SchedulerSupport
+import fr.prcaen.rxbilling3.exception.LoadRewardedSkuException
+import io.reactivex.rxjava3.annotations.CheckReturnValue
+import io.reactivex.rxjava3.annotations.NonNull
+import io.reactivex.rxjava3.annotations.SchedulerSupport
+import io.reactivex.rxjava3.core.Completable
+import io.reactivex.rxjava3.core.Scheduler
 
 /**
  * Loads a rewarded sku in the background and returns the result asynchronously.

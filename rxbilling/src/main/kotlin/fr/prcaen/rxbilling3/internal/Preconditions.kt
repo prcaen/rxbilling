@@ -1,10 +1,10 @@
 @file:JvmName("Preconditions")
 
-package fr.prcaen.rxbilling.internal
+package fr.prcaen.rxbilling3.internal
 
 import android.os.Looper
-import io.reactivex.CompletableEmitter
-import io.reactivex.SingleEmitter
+import io.reactivex.rxjava3.core.CompletableEmitter
+import io.reactivex.rxjava3.core.SingleEmitter
 
 internal fun <T> SingleEmitter<T>.checkMainThread(): Boolean =
   if (Looper.myLooper() != Looper.getMainLooper()) {

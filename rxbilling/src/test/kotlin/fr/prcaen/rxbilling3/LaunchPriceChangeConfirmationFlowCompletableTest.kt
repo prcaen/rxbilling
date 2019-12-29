@@ -1,4 +1,4 @@
-package fr.prcaen.rxbilling
+package fr.prcaen.rxbilling3
 
 import android.app.Activity
 import com.android.billingclient.api.BillingClient
@@ -12,9 +12,8 @@ import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import fr.prcaen.rxbilling.exception.LaunchPriceChangeConfirmationFlowException
+import fr.prcaen.rxbilling3.exception.LaunchPriceChangeConfirmationFlowException
 import org.junit.Test
-import java.util.concurrent.TimeUnit.MILLISECONDS
 
 class LaunchPriceChangeConfirmationFlowCompletableTest {
 
@@ -40,9 +39,6 @@ class LaunchPriceChangeConfirmationFlowCompletableTest {
     // When
     val obs = client.launchPriceChangeConfirmationFlowAsync(activity, params)
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     // Then
     obs.assertComplete()
@@ -78,9 +74,6 @@ class LaunchPriceChangeConfirmationFlowCompletableTest {
     // When
     val obs = client.launchPriceChangeConfirmationFlowAsync(activity, params)
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     // Then
     obs.assertError { e ->

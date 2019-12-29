@@ -1,18 +1,18 @@
 @file:JvmName("RxBillingClient")
 @file:JvmMultifileClass
 
-package fr.prcaen.rxbilling
+package fr.prcaen.rxbilling3
 
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClient.BillingResponseCode
 import com.android.billingclient.api.BillingClient.SkuType
 import com.android.billingclient.api.Purchase
-import fr.prcaen.rxbilling.exception.RetrievePurchasesException
-import io.reactivex.Scheduler
-import io.reactivex.Single
-import io.reactivex.annotations.CheckReturnValue
-import io.reactivex.annotations.NonNull
-import io.reactivex.annotations.SchedulerSupport
+import fr.prcaen.rxbilling3.exception.RetrievePurchasesException
+import io.reactivex.rxjava3.annotations.CheckReturnValue
+import io.reactivex.rxjava3.annotations.NonNull
+import io.reactivex.rxjava3.annotations.SchedulerSupport
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.core.Scheduler
 
 /**
  * Get purchases details for all the items bought within your app. This method uses a cache of

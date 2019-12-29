@@ -1,4 +1,4 @@
-package fr.prcaen.rxbilling
+package fr.prcaen.rxbilling3
 
 import android.app.Activity
 import com.android.billingclient.api.BillingClient
@@ -8,7 +8,6 @@ import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import org.junit.Test
-import java.util.concurrent.TimeUnit.MILLISECONDS
 
 class LaunchBillingFlowSingleTest {
 
@@ -27,9 +26,6 @@ class LaunchBillingFlowSingleTest {
     // When
     val obs = client.launchBillingFlowAsync(activity, params)
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     // Then
     obs.assertValue(result)

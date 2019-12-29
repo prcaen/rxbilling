@@ -1,4 +1,4 @@
-package fr.prcaen.rxbilling
+package fr.prcaen.rxbilling3
 
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClient.BillingResponseCode
@@ -12,9 +12,8 @@ import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import fr.prcaen.rxbilling.exception.QuerySkuDetailsException
+import fr.prcaen.rxbilling3.exception.QuerySkuDetailsException
 import org.junit.Test
-import java.util.concurrent.TimeUnit.MILLISECONDS
 
 class QuerySkuDetailsSingleTest {
 
@@ -42,9 +41,6 @@ class QuerySkuDetailsSingleTest {
       skuType = INAPP
     )
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     obs.assertValue(list)
     obs.assertNoErrors()
@@ -80,9 +76,6 @@ class QuerySkuDetailsSingleTest {
       skuType = INAPP
     )
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     // Then
     obs.assertError { e ->
@@ -118,9 +111,6 @@ class QuerySkuDetailsSingleTest {
       skuType = INAPP
     )
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     obs.assertValue(skuDetails)
     obs.assertNoErrors()
@@ -160,9 +150,6 @@ class QuerySkuDetailsSingleTest {
       skuType = INAPP
     )
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     // Then
     obs.assertError { e ->

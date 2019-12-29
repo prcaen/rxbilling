@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>RxBillingClient</title>
 <meta name="date" content="2019-12-04">
-<meta name="keywords" content="fr.prcaen.rxbilling.RxBillingClient class">
+<meta name="keywords" content="fr.prcaen.rxbilling3.RxBillingClient class">
 <meta name="keywords" content="acknowledgePurchaseAsync()">
 <meta name="keywords" content="consumeAsync()">
 <meta name="keywords" content="isFeatureSupportedAsync()">
@@ -98,12 +98,12 @@
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">fr.prcaen.rxbilling</div>
+<div class="subTitle">fr.prcaen.rxbilling3</div>
 <h2 title="Class RxBillingClient" class="title">Class RxBillingClient</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li>fr.prcaen.rxbilling.RxBillingClient</li>
+<li>fr.prcaen.rxbilling3.RxBillingClient</li>
 </ul>
 <div class="description">
 <ul class="blockList">
@@ -138,7 +138,7 @@ public static&nbsp;io.reactivex.Completable&nbsp;acknowledgePurchaseAsync(@NotNu
                                                                                                                          @NotNull
                                                                                                                          com.android.billingclient.api.AcknowledgePurchaseParams&nbsp;params)</pre>
 <div class="block"><p><p>Acknowledge in-app purchases.</p></p><p><p><p>Note: <a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#acknowledgePurchaseAsync-:Dreceiver-params-"><code>acknowledgePurchaseAsync</code></a> does not operate by default on a particular <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>.</p><p>Error handling: If Billing result is not <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>,
-the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/AcknowledgePurchaseException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception AcknowledgePurchaseException</code></a>.</p></p></p></div>
+the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/AcknowledgePurchaseException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception AcknowledgePurchaseException</code></a>.</p></p></p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>params</code> - Params specific to this load request <a href="https://developer.android.com/reference/com/android/billingclient/api/AcknowledgePurchaseParams.html">AcknowledgePurchaseParams</a>.</dd>
@@ -148,7 +148,7 @@ the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/Acknowl
 <dd><a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#acknowledgePurchaseAsync-:Dreceiver-params-"><code>acknowledgePurchaseAsync</code></a>, 
 <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>, 
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>, 
-<a href="../../../fr/prcaen/rxbilling/exception/AcknowledgePurchaseException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception AcknowledgePurchaseException</code></a>, 
+<a href="../../../fr/prcaen/rxbilling/exception/AcknowledgePurchaseException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception AcknowledgePurchaseException</code></a>,
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient.html#acknowledgePurchase(com.android.billingclient.api.AcknowledgePurchaseParams, com.android.billingclient.api.AcknowledgePurchaseResponseListener)">BillingClient.acknowledgePurchase</a></dd>
 </dl>
 </li>
@@ -169,7 +169,7 @@ public static&nbsp;io.reactivex.Single&lt;java.lang.String&gt;&nbsp;consumeAsync
                                                                                                                           com.android.billingclient.api.ConsumeParams&nbsp;consumeParams)</pre>
 <div class="block"><p><p>Consumes a given in-app product. Consuming can only be done on an item that's owned, and as a
 result of consumption, the user will no longer own it.</p></p><p><p><p>Note: <a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#consumeAsync-:Dreceiver-consumeParams-"><code>consumeAsync</code></a> does not operate by default on a particular <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>.</p><p>Error handling: If Billing result is not <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>,
-the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/ConsumeException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception ConsumeException</code></a>.</p></p></p></div>
+the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/ConsumeException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception ConsumeException</code></a>.</p></p></p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>consumeParams</code> - Params specific to consume purchase.</dd>
@@ -179,7 +179,7 @@ the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/Consume
 <dd><a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#consumeAsync-:Dreceiver-consumeParams-"><code>consumeAsync</code></a>, 
 <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>, 
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>, 
-<a href="../../../fr/prcaen/rxbilling/exception/ConsumeException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception ConsumeException</code></a>, 
+<a href="../../../fr/prcaen/rxbilling/exception/ConsumeException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception ConsumeException</code></a>,
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient.html#consumeAsync(com.android.billingclient.api.ConsumeParams, com.android.billingclient.api.ConsumeResponseListener)">BillingClient.consumeAsync</a></dd>
 </dl>
 </li>
@@ -199,7 +199,7 @@ public static&nbsp;io.reactivex.Single&lt;java.lang.Boolean&gt;&nbsp;isFeatureSu
                                                                                                                                       @NotNull
                                                                                                                                       java.lang.String&nbsp;feature)</pre>
 <div class="block"><p><p>Check if specified feature or capability is supported by the Play Store.</p></p><p><p><p>Note: <a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#isFeatureSupportedAsync-:Dreceiver-feature-"><code>isFeatureSupportedAsync</code></a> does not operate by default on a particular <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>.</p><p>Warning: This method should be executed on MainThread, it will throw <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/index.html">IllegalStateException</a> if not.</p><p>Error handling: If Billing result is not <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a> or <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#FEATURE_NOT_SUPPORTED">BillingResponseCode.FEATURE_NOT_SUPPORTED</a>,
-the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/IsFeatureSupportedException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception IsFeatureSupportedException</code></a>.</p></p></p></div>
+the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/IsFeatureSupportedException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception IsFeatureSupportedException</code></a>.</p></p></p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>feature</code> - Params specific to this load request <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/FeatureType.html">FeatureType</a>.</dd>
@@ -211,7 +211,7 @@ the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/IsFeatu
 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/index.html">IllegalStateException</a>, 
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>, 
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#FEATURE_NOT_SUPPORTED">BillingResponseCode.FEATURE_NOT_SUPPORTED</a>, 
-<a href="../../../fr/prcaen/rxbilling/exception/IsFeatureSupportedException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception IsFeatureSupportedException</code></a>, 
+<a href="../../../fr/prcaen/rxbilling/exception/IsFeatureSupportedException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception IsFeatureSupportedException</code></a>,
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient.html#isFeatureSupported(java.lang.String)">BillingClient.isFeatureSupported</a></dd>
 </dl>
 </li>
@@ -322,7 +322,7 @@ public static&nbsp;io.reactivex.Completable&nbsp;loadRewardedSkuAsync(@NotNull
                                                                                                                      @NotNull
                                                                                                                      com.android.billingclient.api.RewardLoadParams&nbsp;params)</pre>
 <div class="block"><p><p>Loads a rewarded sku in the background and returns the result asynchronously.</p></p><p><p><p>Note: <a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#loadRewardedSkuAsync-:Dreceiver-params-"><code>loadRewardedSkuAsync</code></a> does not operate by default on a particular <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>.</p><p>Error handling: If Billing result is not <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>,
-the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/LoadRewardedSkuException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception LoadRewardedSkuException</code></a>.</p></p></p></div>
+the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/LoadRewardedSkuException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception LoadRewardedSkuException</code></a>.</p></p></p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>params</code> - Params specific to this load request <a href="https://developer.android.com/reference/com/android/billingclient/api/RewardLoadParams.html">RewardLoadParams</a></dd>
@@ -332,7 +332,7 @@ the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/LoadRew
 <dd><a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#loadRewardedSkuAsync-:Dreceiver-params-"><code>loadRewardedSkuAsync</code></a>, 
 <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>, 
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>, 
-<a href="../../../fr/prcaen/rxbilling/exception/LoadRewardedSkuException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception LoadRewardedSkuException</code></a>, 
+<a href="../../../fr/prcaen/rxbilling/exception/LoadRewardedSkuException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception LoadRewardedSkuException</code></a>,
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient.html#loadRewardedSku(com.android.billingclient.api.RewardLoadParams, com.android.billingclient.api.RewardResponseListener)">BillingClient.loadRewardedSku</a></dd>
 </dl>
 </li>
@@ -353,7 +353,7 @@ public static&nbsp;io.reactivex.Single&lt;java.util.List&gt;&nbsp;queryPurchaseH
                                                                                                                                      java.lang.String&nbsp;skuType)</pre>
 <div class="block"><p><p>Returns the most recent purchase made by the user for each SKU, even if that purchase is
 expired, canceled, or consumed.</p></p><p><p><p>Note: <a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#queryPurchaseHistoryAsync-:Dreceiver-skuType-"><code>queryPurchaseHistoryAsync</code></a> does not operate by default on a particular <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>.</p><p>Error handling: If Billing result is not <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>,
-the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/QueryPurchaseHistoryException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception QueryPurchaseHistoryException</code></a>.</p></p></p></div>
+the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/QueryPurchaseHistoryException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception QueryPurchaseHistoryException</code></a>.</p></p></p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>skuType</code> - The type of SKU, either "inapp" or "subs" as in <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/SkuType.html">SkuType</a></dd>
@@ -364,7 +364,7 @@ the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/QueryPu
 <dd><a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#queryPurchaseHistoryAsync-:Dreceiver-skuType-"><code>queryPurchaseHistoryAsync</code></a>, 
 <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>, 
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>, 
-<a href="../../../fr/prcaen/rxbilling/exception/QueryPurchaseHistoryException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception QueryPurchaseHistoryException</code></a>, 
+<a href="../../../fr/prcaen/rxbilling/exception/QueryPurchaseHistoryException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception QueryPurchaseHistoryException</code></a>,
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient.html#queryPurchaseHistoryAsync(java.lang.String, com.android.billingclient.api.PurchaseHistoryResponseListener)">BillingClient.queryPurchaseHistoryAsync</a></dd>
 </dl>
 </li>
@@ -385,7 +385,7 @@ public static&nbsp;io.reactivex.Single&lt;java.util.List&gt;&nbsp;queryPurchases
                                                                                                                                java.lang.String&nbsp;skuType)</pre>
 <div class="block"><p><p>Get purchases details for all the items bought within your app. This method uses a cache of
 Google Play Store app without initiating a network request.</p></p><p><p><p>Note: <a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#queryPurchasesAsync-:Dreceiver-skuType-"><code>queryPurchasesAsync</code></a> does not operate by default on a particular <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>.</p><p>Error handling: If Billing result is not <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>,
-the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/RetrievePurchasesException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception RetrievePurchasesException</code></a>.</p></p></p></div>
+the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/RetrievePurchasesException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception RetrievePurchasesException</code></a>.</p></p></p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>skuType</code> - The type of SKU, either "inapp" or "subs" as in <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/SkuType.html">SkuType</a></dd>
@@ -395,7 +395,7 @@ the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/Retriev
 <dd><a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#queryPurchasesAsync-:Dreceiver-skuType-"><code>queryPurchasesAsync</code></a>, 
 <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>, 
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>, 
-<a href="../../../fr/prcaen/rxbilling/exception/RetrievePurchasesException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception RetrievePurchasesException</code></a>, 
+<a href="../../../fr/prcaen/rxbilling/exception/RetrievePurchasesException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception RetrievePurchasesException</code></a>,
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient.html#queryPurchases(java.lang.String)">BillingClient.queryPurchases</a></dd>
 </dl>
 </li>
@@ -417,7 +417,7 @@ public static&nbsp;io.reactivex.Single&lt;com.android.billingclient.api.SkuDetai
                                                                                                                                                           @NotNull
                                                                                                                                                           java.lang.String&nbsp;skuType)</pre>
 <div class="block"><p><p>Perform a network query to get SKU details.</p></p><p><p><p>Note: <a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#querySkuDetailsAsync-:Dreceiver-sku-skuType-"><code>querySkuDetailsAsync</code></a> does not operate by default on a particular <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>.</p><p>Error handling: If Billing result is not <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>,
-the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/QuerySkuDetailsException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception QuerySkuDetailsException</code></a>.</p></p></p></div>
+the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/QuerySkuDetailsException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception QuerySkuDetailsException</code></a>.</p></p></p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>sku</code> - Specify the SKU that is queried for as published in the Google Developer console.</dd>
@@ -428,7 +428,7 @@ the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/QuerySk
 <dd><a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#querySkuDetailsAsync-:Dreceiver-sku-skuType-"><code>querySkuDetailsAsync</code></a>, 
 <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>, 
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>, 
-<a href="../../../fr/prcaen/rxbilling/exception/QuerySkuDetailsException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception QuerySkuDetailsException</code></a>, 
+<a href="../../../fr/prcaen/rxbilling/exception/QuerySkuDetailsException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception QuerySkuDetailsException</code></a>,
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient.html#querySkuDetailsAsync(com.android.billingclient.api.SkuDetailsParams, com.android.billingclient.api.SkuDetailsResponseListener)">BillingClient.querySkuDetailsAsync</a></dd>
 </dl>
 </li>
@@ -450,7 +450,7 @@ public static&nbsp;io.reactivex.Single&lt;java.util.List&gt;&nbsp;querySkusDetai
                                                                                                                                  @NotNull
                                                                                                                                  java.lang.String&nbsp;skuType)</pre>
 <div class="block"><p><p>Perform a network query to get SKUs details.</p></p><p><p><p>Note: <a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#querySkusDetailsAsync-:Dreceiver-skusList-skuType-"><code>querySkusDetailsAsync</code></a> does not operate by default on a particular <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>.</p><p>Error handling: If Billing result is not <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>,
-the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/QuerySkuDetailsException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception QuerySkuDetailsException</code></a>.</p></p></p></div>
+the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/QuerySkuDetailsException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception QuerySkuDetailsException</code></a>.</p></p></p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>skusList</code> - Specify the SKUs that are queried for as published in the Google Developer console.</dd>
@@ -461,7 +461,7 @@ the emitter will deliver <a href="../../../fr/prcaen/rxbilling/exception/QuerySk
 <dd><a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#querySkusDetailsAsync-:Dreceiver-skusList-skuType-"><code>querySkusDetailsAsync</code></a>, 
 <a href="http://reactivex.io/RxJava/javadoc/io/reactivex/Scheduler.html">Scheduler</a>, 
 <a href="https://developer.android.com/reference/com/android/billingclient/api/BillingClient/BillingResponseCode.html#OK">BillingResponseCode.OK</a>, 
-<a href="../../../fr/prcaen/rxbilling/exception/QuerySkuDetailsException.html" title="class in fr.prcaen.rxbilling.exception"><code>exception QuerySkuDetailsException</code></a>, 
+<a href="../../../fr/prcaen/rxbilling/exception/QuerySkuDetailsException.html" title="class in fr.prcaen.rxbilling3.exception"><code>exception QuerySkuDetailsException</code></a>,
 <a href="../../../fr/prcaen/rxbilling/RxBillingClient.html#querySkusDetailsAsync-:Dreceiver-skusList-skuType-"><code>BillingClient.querySkusDetailsAsync</code></a></dd>
 </dl>
 </li>

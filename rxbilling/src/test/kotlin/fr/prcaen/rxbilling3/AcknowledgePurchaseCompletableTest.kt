@@ -1,4 +1,4 @@
-package fr.prcaen.rxbilling
+package fr.prcaen.rxbilling3
 
 import com.android.billingclient.api.AcknowledgePurchaseParams
 import com.android.billingclient.api.AcknowledgePurchaseResponseListener
@@ -11,10 +11,9 @@ import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import fr.prcaen.rxbilling.exception.AcknowledgePurchaseException
-import io.reactivex.observers.TestObserver
+import fr.prcaen.rxbilling3.exception.AcknowledgePurchaseException
+import io.reactivex.rxjava3.observers.TestObserver
 import org.junit.Test
-import java.util.concurrent.TimeUnit.MILLISECONDS
 
 class AcknowledgePurchaseCompletableTest {
 
@@ -39,9 +38,6 @@ class AcknowledgePurchaseCompletableTest {
     // When
     val obs: TestObserver<Void> = client.acknowledgePurchaseAsync(params)
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     // Then
     obs.assertComplete()
@@ -75,9 +71,6 @@ class AcknowledgePurchaseCompletableTest {
     // When
     val obs = client.acknowledgePurchaseAsync(params)
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     // Then
     obs.assertError { e ->

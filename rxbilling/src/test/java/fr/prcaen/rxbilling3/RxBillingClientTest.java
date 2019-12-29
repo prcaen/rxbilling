@@ -1,4 +1,4 @@
-package fr.prcaen.rxbilling;
+package fr.prcaen.rxbilling3;
 
 import android.app.Activity;
 import com.android.billingclient.api.AcknowledgePurchaseParams;
@@ -17,18 +17,17 @@ import com.android.billingclient.api.RewardLoadParams;
 import com.android.billingclient.api.RewardResponseListener;
 import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsResponseListener;
-import fr.prcaen.rxbilling.exception.AcknowledgePurchaseException;
-import fr.prcaen.rxbilling.exception.ConsumeException;
-import fr.prcaen.rxbilling.exception.IsFeatureSupportedException;
-import fr.prcaen.rxbilling.exception.LaunchPriceChangeConfirmationFlowException;
-import fr.prcaen.rxbilling.exception.LoadRewardedSkuException;
-import fr.prcaen.rxbilling.exception.QueryPurchaseHistoryException;
-import fr.prcaen.rxbilling.exception.QuerySkuDetailsException;
-import fr.prcaen.rxbilling.exception.RetrievePurchasesException;
-import io.reactivex.observers.TestObserver;
+import fr.prcaen.rxbilling3.exception.AcknowledgePurchaseException;
+import fr.prcaen.rxbilling3.exception.ConsumeException;
+import fr.prcaen.rxbilling3.exception.IsFeatureSupportedException;
+import fr.prcaen.rxbilling3.exception.LaunchPriceChangeConfirmationFlowException;
+import fr.prcaen.rxbilling3.exception.LoadRewardedSkuException;
+import fr.prcaen.rxbilling3.exception.QueryPurchaseHistoryException;
+import fr.prcaen.rxbilling3.exception.QuerySkuDetailsException;
+import fr.prcaen.rxbilling3.exception.RetrievePurchasesException;
+import io.reactivex.rxjava3.observers.TestObserver;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import org.junit.Test;
 
 import static com.android.billingclient.api.BillingClient.FeatureType.SUBSCRIPTIONS;
@@ -63,7 +62,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<Void> obs = RxBillingClient.acknowledgePurchaseAsync(client, params)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertComplete();
@@ -95,7 +93,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<Void> obs = RxBillingClient.acknowledgePurchaseAsync(client, params)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertError(e -> e instanceof AcknowledgePurchaseException
@@ -127,7 +124,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<String> obs = RxBillingClient.consumeAsync(client, params)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertValue(purchaseToken);
@@ -159,7 +155,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<String> obs = RxBillingClient.consumeAsync(client, params)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertError(e -> e instanceof ConsumeException
@@ -181,7 +176,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<Boolean> obs = RxBillingClient.isFeatureSupportedAsync(client, feature)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertValue(true);
@@ -202,7 +196,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<Boolean> obs = RxBillingClient.isFeatureSupportedAsync(client, feature)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertValue(false);
@@ -225,7 +218,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<Boolean> obs = RxBillingClient.isFeatureSupportedAsync(client, feature)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertError(e -> e instanceof IsFeatureSupportedException
@@ -244,7 +236,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<Boolean> obs = RxBillingClient.isReadyAsync(client)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertValue(true);
@@ -261,7 +252,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<Boolean> obs = RxBillingClient.isReadyAsync(client)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertValue(false);
@@ -282,7 +272,6 @@ public class RxBillingClientTest {
     final TestObserver<BillingResult> obs =
         RxBillingClient.launchBillingFlowAsync(client, activity, params)
             .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertValue(result);
@@ -313,7 +302,6 @@ public class RxBillingClientTest {
     final TestObserver<Void> obs =
         RxBillingClient.launchPriceChangeConfirmationFlowAsync(client, activity, params)
             .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertComplete();
@@ -347,7 +335,6 @@ public class RxBillingClientTest {
     final TestObserver<Void> obs =
         RxBillingClient.launchPriceChangeConfirmationFlowAsync(client, activity, params)
             .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertError(e -> e instanceof LaunchPriceChangeConfirmationFlowException
@@ -378,7 +365,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<Void> obs = RxBillingClient.loadRewardedSkuAsync(client, params)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertComplete();
@@ -410,7 +396,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<Void> obs = RxBillingClient.loadRewardedSkuAsync(client, params)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertError(e -> e instanceof LoadRewardedSkuException
@@ -444,7 +429,6 @@ public class RxBillingClientTest {
     final TestObserver<List<PurchaseHistoryRecord>> obs =
         RxBillingClient.queryPurchaseHistoryAsync(client, skuType)
             .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertValue(list);
@@ -477,7 +461,6 @@ public class RxBillingClientTest {
     final TestObserver<List<PurchaseHistoryRecord>> obs =
         RxBillingClient.queryPurchaseHistoryAsync(client, skuType)
             .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertError(e -> e instanceof QueryPurchaseHistoryException
@@ -510,7 +493,6 @@ public class RxBillingClientTest {
     final TestObserver<List<SkuDetails>> obs =
         RxBillingClient.querySkusDetailsAsync(client, new ArrayList<>(), INAPP)
             .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertValue(list);
@@ -542,7 +524,6 @@ public class RxBillingClientTest {
     final TestObserver<List<SkuDetails>> obs =
         RxBillingClient.querySkusDetailsAsync(client, new ArrayList<>(), INAPP)
             .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertError(e -> e instanceof QuerySkuDetailsException
@@ -578,7 +559,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<List<Purchase>> obs = RxBillingClient.queryPurchasesAsync(client, skuType)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertValue(list);
@@ -609,7 +589,6 @@ public class RxBillingClientTest {
     // When
     final TestObserver<List<Purchase>> obs = RxBillingClient.queryPurchasesAsync(client, skuType)
         .test();
-    obs.awaitTerminalEvent(50, TimeUnit.MILLISECONDS);
 
     // Then
     obs.assertError(e -> e instanceof RetrievePurchasesException

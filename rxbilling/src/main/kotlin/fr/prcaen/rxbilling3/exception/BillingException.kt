@@ -1,4 +1,4 @@
-package fr.prcaen.rxbilling.exception
+package fr.prcaen.rxbilling3.exception
 
 import com.android.billingclient.api.BillingClient.BillingResponseCode
 

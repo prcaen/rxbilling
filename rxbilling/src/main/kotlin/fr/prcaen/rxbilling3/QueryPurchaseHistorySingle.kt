@@ -1,18 +1,18 @@
 @file:JvmName("RxBillingClient")
 @file:JvmMultifileClass
 
-package fr.prcaen.rxbilling
+package fr.prcaen.rxbilling3
 
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClient.BillingResponseCode
 import com.android.billingclient.api.BillingClient.SkuType
 import com.android.billingclient.api.PurchaseHistoryRecord
-import fr.prcaen.rxbilling.exception.QueryPurchaseHistoryException
-import io.reactivex.Scheduler
-import io.reactivex.Single
-import io.reactivex.annotations.CheckReturnValue
-import io.reactivex.annotations.NonNull
-import io.reactivex.annotations.SchedulerSupport
+import fr.prcaen.rxbilling3.exception.QueryPurchaseHistoryException
+import io.reactivex.rxjava3.annotations.CheckReturnValue
+import io.reactivex.rxjava3.annotations.NonNull
+import io.reactivex.rxjava3.annotations.SchedulerSupport
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.core.Scheduler
 
 /**
  * Returns the most recent purchase made by the user for each SKU, even if that purchase is

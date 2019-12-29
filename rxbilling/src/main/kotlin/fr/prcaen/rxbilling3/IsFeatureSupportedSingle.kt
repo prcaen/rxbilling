@@ -1,19 +1,19 @@
 @file:JvmName("RxBillingClient")
 @file:JvmMultifileClass
 
-package fr.prcaen.rxbilling
+package fr.prcaen.rxbilling3
 
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClient.BillingResponseCode
 import com.android.billingclient.api.BillingClient.FeatureType
 import com.android.billingclient.api.BillingResult
-import fr.prcaen.rxbilling.exception.IsFeatureSupportedException
-import fr.prcaen.rxbilling.internal.checkMainThread
-import io.reactivex.Scheduler
-import io.reactivex.Single
-import io.reactivex.annotations.CheckReturnValue
-import io.reactivex.annotations.NonNull
-import io.reactivex.annotations.SchedulerSupport
+import fr.prcaen.rxbilling3.exception.IsFeatureSupportedException
+import fr.prcaen.rxbilling3.internal.checkMainThread
+import io.reactivex.rxjava3.annotations.CheckReturnValue
+import io.reactivex.rxjava3.annotations.NonNull
+import io.reactivex.rxjava3.annotations.SchedulerSupport
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.core.Scheduler
 
 /**
  * Check if specified feature or capability is supported by the Play Store.

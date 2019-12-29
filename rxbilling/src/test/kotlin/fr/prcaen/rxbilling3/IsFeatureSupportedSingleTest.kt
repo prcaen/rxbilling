@@ -1,4 +1,4 @@
-package fr.prcaen.rxbilling
+package fr.prcaen.rxbilling3
 
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClient.BillingResponseCode
@@ -7,9 +7,8 @@ import com.android.billingclient.api.BillingResult
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import fr.prcaen.rxbilling.exception.IsFeatureSupportedException
+import fr.prcaen.rxbilling3.exception.IsFeatureSupportedException
 import org.junit.Test
-import java.util.concurrent.TimeUnit.MILLISECONDS
 
 class IsFeatureSupportedSingleTest {
 
@@ -31,9 +30,6 @@ class IsFeatureSupportedSingleTest {
     // When
     val obs = client.isFeatureSupportedAsync(feature)
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     // Then
     obs.assertValue(true)
@@ -58,9 +54,6 @@ class IsFeatureSupportedSingleTest {
     // When
     val obs = client.isFeatureSupportedAsync(feature)
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     // Then
     obs.assertValue(false)
@@ -91,9 +84,6 @@ class IsFeatureSupportedSingleTest {
     // When
     val obs = client.isFeatureSupportedAsync(feature)
       .test()
-      .apply {
-        awaitTerminalEvent(50, MILLISECONDS)
-      }
 
     // Then
     obs.assertError { e ->
